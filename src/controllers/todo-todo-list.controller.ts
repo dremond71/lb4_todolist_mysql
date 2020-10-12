@@ -1,8 +1,10 @@
+import {authenticate} from '@loopback/authentication';
 import {repository} from '@loopback/repository';
 import {get, getModelSchemaRef, param} from '@loopback/rest';
 import {Todo, TodoList} from '../models';
 import {TodoRepository} from '../repositories';
 
+@authenticate('jwt')
 export class TodoTodoListController {
   constructor(
     @repository(TodoRepository)
